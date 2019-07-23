@@ -1,0 +1,10 @@
+---
+- name: Getting mux
+  hosts: all
+
+  tasks:
+    - name: Cloning mux into src
+      git:
+        repo: 'https://github.com/gorilla/mux'
+        dest:  "src/github.com/gorilla/mux/"
+    

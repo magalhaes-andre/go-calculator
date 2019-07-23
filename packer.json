@@ -1,0 +1,31 @@
+{
+    "builders": [
+        {
+            "type": "docker",
+            "image": "golang:latest",
+            "commit": "true",
+            "pull": "true",
+            "changes": [
+                   "ENTRYPOINT go run src/com.magalhaes_andre/main.go"
+            ]
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "file",
+            "source": "./src",
+            "destination": "/go/"
+        },
+        {
+            "type": "ansible",
+            "playbook_file": "./getMux.yml"
+        }
+    ],
+    "post-processors": [
+        {
+        "type": "docker-tag",
+        "repository": "go-calc-packer",
+        "tag": "latest"
+        }
+    ]
+ }
