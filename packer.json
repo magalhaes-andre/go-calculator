@@ -18,7 +18,7 @@
         },
         {
             "type": "ansible",
-            "playbook_file": "./getMux.yml"
+            "playbook_file": "./ansible.yml"
         }
     ],
     "post-processors": [
